@@ -1,6 +1,6 @@
 {
   "name": "@foobarhq/validators",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "FP composable string parsers and validators.",
   "main": "lib/index.js",
   "scripts": {
