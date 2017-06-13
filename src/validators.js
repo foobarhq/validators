@@ -256,6 +256,16 @@ export function arrayValidator(itemValidator: Function, options: {
   defaultValue: any,
 }) {
 
+  if (typeof itemValidator === 'object') {
+    const tmp = itemValidator;
+    itemValidator = options;
+    options = tmp;
+  }
+
+  if (!itemValidator) {
+    itemValidator = noValidate();
+  }
+
   function validateArray(items, metadata) {
 
     if (!Array.isArray(items)) {
