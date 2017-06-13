@@ -104,11 +104,7 @@ function noop(arg) {
   return arg;
 }
 
-export function noValidate(arg) {
-  if (arg !== void 0) {
-    return arg;
-  }
-
+export function noValidate() {
   return noop;
 }
 
