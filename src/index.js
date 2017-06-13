@@ -1,21 +1,9 @@
 import assert from 'assert';
+import InvalidData from './InvalidData';
 
 export * from './composite';
 export * from './validators';
-
-export class InvalidData {
-  key: ?string;
-  reason: string;
-
-  constructor(reason, key) {
-    this.reason = reason;
-    this.key = key;
-  }
-
-  toString() {
-    return `${this.key}: ${this.reason}`;
-  }
-}
+export { InvalidData };
 
 export function validate(item, itemName, validator, metadata) {
   if (itemName === void 0 && validator === void 0 && typeof item === 'object' && item !== null) {
