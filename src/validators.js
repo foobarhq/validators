@@ -57,20 +57,20 @@ export function enumValidator(values: Array
 
 export function structValidator(validators, options) {
 
-  const requiredProperties = options && options.requiredProperties;
+  if (!validators || typeof validators !== 'object') {
+    throw new TypeError('missing struct component validators');
+  }
+
+  const validatorKeys = Object.getOwnPropertyNames(validators);
+  Object.freeze(validatorKeys);
 
   function validateStruct(item, metadata) {
     if (item === null || typeof item !== 'object') {
       throw new InvalidData('Not an object');
     }
 
-    for (const key of Object.getOwnPropertyNames(item)) {
+    for (const key of validatorKeys) {
       const validator = validators[key];
-
-      if (!validator) {
-        throw new InvalidData(`Unexpected property ${JSON.stringify(key)}`);
-      }
-
       const value = item[key];
 
       try {
@@ -89,16 +89,9 @@ export function structValidator(validators, options) {
       }
     }
 
-    if (requiredProperties) {
-      const keys = Array.isArray(requiredProperties)
-        ? requiredProperties
-        : Object.getOwnPropertyNames(validators);
-
-      for (const key of keys) {
-        if (!(key in item)) {
-          throw new InvalidData(`Missing property ${JSON.stringify(key)}`, key);
-        }
-      }
+    const itemKeys = Object.getOwnPropertyNames(item).filter(key => !validators[key]);
+    if (itemKeys.length > 0) {
+      throw new InvalidData(`Extraneous properties: ${itemKeys.map(JSON.stringify).join(', ')}`);
     }
 
     return item;
