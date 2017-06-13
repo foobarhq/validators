@@ -1,5 +1,7 @@
 # @foobarhq/validators
 
+[![npm version](https://badge.fury.io/js/%40foobarhq%2Fvalidators.svg)](https://badge.fury.io/js/%40foobarhq%2Fvalidators)
+
 The main purpose of this library is (but not limited) to parse and validate data received from HTTP requests.
 
 It achieves this goal by providing a set of composable functions designed to easily build complex input validators.
