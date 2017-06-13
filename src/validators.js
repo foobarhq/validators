@@ -253,6 +253,7 @@ export function arrayValidator(itemValidator: Function, options: {
   min: number,
   max: number,
   allowNull: boolean,
+  strict: boolean,
   defaultValue: any,
 }) {
 
@@ -269,6 +270,10 @@ export function arrayValidator(itemValidator: Function, options: {
   function validateArray(items, metadata) {
 
     if (!Array.isArray(items)) {
+      if (options && options.strict) {
+        throw new InvalidData('not an array');
+      }
+
       items = [items];
     }
 
