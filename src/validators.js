@@ -55,11 +55,11 @@ export function enumValidator(values: Array
   return optionalValidator(validateEnum, options);
 }
 
-export function objectValidator(validators, options) {
+export function structValidator(validators, options) {
 
   const requiredProperties = options && options.requiredProperties;
 
-  function validateObject(item, metadata) {
+  function validateStruct(item, metadata) {
     if (item === null || typeof item !== 'object') {
       throw new InvalidData('Not an object');
     }
@@ -104,7 +104,7 @@ export function objectValidator(validators, options) {
     return item;
   }
 
-  return optionalValidator(validateObject, options);
+  return optionalValidator(validateStruct, options);
 }
 
 function noop(arg) {
