@@ -11,6 +11,10 @@ export class InvalidData {
     this.reason = reason;
     this.key = key;
   }
+
+  toString() {
+    return `${this.key}: ${this.reason}`;
+  }
 }
 
 export function validate(item, itemName, validator, metadata) {
