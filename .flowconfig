@@ -1,0 +1,12 @@
+[ignore]
+
+[include]
+
+[libs]
+flow-types/npm/jest_v20.x.x.js
+
+[options]
+esproposal.export_star_as=enable
+emoji=true
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+module.use_strict=true

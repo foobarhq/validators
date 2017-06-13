@@ -1,3 +1,5 @@
+// @flow
+
 import { numberValidator, InvalidData } from '../src';
 
 describe('numberValidator', () => {

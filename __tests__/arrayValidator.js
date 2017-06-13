@@ -1,3 +1,5 @@
+// @flow
+
 import { arrayValidator, InvalidData, numberValidator } from '../src';
 
 describe('arrayValidator', () => {

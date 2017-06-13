@@ -1,3 +1,5 @@
+// @flow
+
 import { noValidate } from '../src';
 
 describe('noValidate', () => {

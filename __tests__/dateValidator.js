@@ -1,3 +1,5 @@
+// @flow
+
 import { dateValidator, InvalidData } from '../src';
 
 describe('dateValidator', () => {

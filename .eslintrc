@@ -5,7 +5,8 @@
     "arrow-body-style": 0,
     "no-underscore-dangle": 0,
     "require-jsdoc": 0,
-    "no-console": "error"
+    "no-console": "error",
+    "flowtype/no-dupe-keys": 0
   },
   "env": {
     "jest": true

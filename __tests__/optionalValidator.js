@@ -1,3 +1,5 @@
+// @flow
+
 import { noValidate, optionalValidator, InvalidData } from '../src';
 
 describe('optionalValidator', () => {

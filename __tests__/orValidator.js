@@ -1,3 +1,5 @@
+// @flow
+
 import { booleanValidator, stringValidator, orValidator, numberValidator, InvalidData } from '../src';
 
 describe('orValidator', () => {

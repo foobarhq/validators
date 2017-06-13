@@ -1,3 +1,5 @@
+// @flow
+
 import { enumValidator, InvalidData } from '../src';
 
 describe('enumValidator', () => {

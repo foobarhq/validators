@@ -1,4 +1,8 @@
-export function andValidator(validators: Array) {
+// @flow
+
+import type { Validator } from './types';
+
+export function andValidator(validators: Validator[]): Validator {
   return function validateComposedAnd(item, metadata) {
     for (const validator of validators) {
       item = validator(item, metadata);
@@ -8,7 +12,7 @@ export function andValidator(validators: Array) {
   };
 }
 
-export function orValidator(validators: Array) {
+export function orValidator(validators: Validator[]): Validator {
   return function validateComposedOr(item, metadata) {
 
     let lastError = null;
