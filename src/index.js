@@ -23,8 +23,6 @@ export function validate(item, itemName, validator, metadata) {
       throw e;
     }
 
-    // const key = e.key || itemName;
-
     throw new TypeError(`${JSON.stringify(itemName)} validation failed: ${e.reason}`);
   }
 }
