@@ -4,14 +4,18 @@
   "description": "FP composable string parsers and validators.",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib --copy-files",
-    "build:watch": "npm run build -- --watch",
+    "build:clean": "rimraf lib",
+    "build:lib": "babel src --out-dir lib --copy-files",
+    "build:flow": "flow-copy-source src lib",
+    "build": "npm run build:clean && npm run build:lib && npm run build:flow",
+    "build:watch": "npm run build:clean && npm run build:lib -- --watch",
     "lint": "eslint src",
     "flow": "flow",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
     "commitmsg": "npm run lint && conventional-changelog-lint -e",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release": "npm run build && standard-version"
   },
   "author": "MAD Kings <info@madkings.com>",
   "contributors": [
@@ -32,7 +36,9 @@
     "conventional-changelog-lint": "^1.1.9",
     "eslint": "^3.14.1",
     "flow-bin": "^0.47.0",
+    "flow-copy-source": "^1.1.0",
     "husky": "^0.13.4",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "standard-version": "^4.2.0"
   }
 }
