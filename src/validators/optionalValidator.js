@@ -6,13 +6,11 @@ import InvalidData from '../InvalidData';
 export type OptionalArgs = {
   allowNull?: boolean,
   defaultValue?: any,
-  threatAsVoid?: boolean,
+  threatAsVoid?: any,
 };
 
 const defaultOptionalArgs: OptionalArgs = {
   allowNull: false,
-  defaultValue: void 0,
-  threatAsVoid: false,
 };
 
 Object.freeze(defaultOptionalArgs);
@@ -20,12 +18,12 @@ Object.freeze(defaultOptionalArgs);
 export default function optionalValidator(
   validator: Validator,
   // $FlowFixMe
-  { allowNull, defaultValue, threatAsVoid }: ?OptionalArgs = defaultOptionalArgs
+  options?: OptionalArgs = defaultOptionalArgs
 ): Validator {
 
   return function validateOptional(item, metadata) {
     if (item === null) {
-      if (allowNull) {
+      if (options.allowNull) {
         return null;
       }
 
@@ -34,18 +32,18 @@ export default function optionalValidator(
 
     if (
       item === void 0
-      || (threatAsVoid && threatAsVoid === item)
-      || (Array.isArray(threatAsVoid) && threatAsVoid.includes(item))
+      || (options.threatAsVoid && options.threatAsVoid === item)
+      || (Array.isArray(options.threatAsVoid) && options.threatAsVoid.includes(item))
     ) {
-      if (defaultValue === void 0) {
+      if (!Object.prototype.hasOwnProperty.call(options, 'defaultValue')) {
         throw new InvalidData('Missing value');
       }
 
-      if (typeof defaultValue === 'function') {
-        return defaultValue();
+      if (typeof options.defaultValue === 'function') {
+        return options.defaultValue();
       }
 
-      return defaultValue;
+      return options.defaultValue;
     }
 
     return validator(item, metadata);

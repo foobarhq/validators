@@ -28,6 +28,12 @@ describe('optionalValidator', () => {
     expect(validate(void 0)).toEqual('yes');
   });
 
+  test('can accept undefined as a default value', () => {
+    const validate = optionalValidator(noValidate(), { defaultValue: void 0 });
+
+    expect(validate(void 0)).toEqual(void 0);
+  });
+
   test('can accept a null as a defaultValue', () => {
     const validate = optionalValidator(noValidate(), { defaultValue: null });
 
