@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/foobarhq/validators/compare/v1.1.0...v2.0.0) (2017-06-29)
+
+
+### Features
+
+* Accept undefined as default values ([772cb3e](https://github.com/foobarhq/validators/commit/772cb3e))
+
+
+
 <a name="1.1.0"></a>
 # 1.1.0 (2017-06-13)
 
