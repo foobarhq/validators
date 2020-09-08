@@ -1,5 +1,9 @@
 # @foobarhq/validators
 
+This package is deprecated, please use https://www.npmjs.com/package/joi
+
+---
+
 [![npm version](https://badge.fury.io/js/%40foobarhq%2Fvalidators.svg)](https://badge.fury.io/js/%40foobarhq%2Fvalidators)
 
 The main purpose of this library is (but not limited) to parse and validate data received from HTTP requests.
